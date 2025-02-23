@@ -1,14 +1,22 @@
-import { Link } from "react-router-dom"
-const Nav = () => {
-  return (
-    <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/cart">Cart</Link></li>
-        <li><Link to="/about">About</Link></li>
-      </ul>
-    </div>
-  )
-}
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
 
-export default Nav
+const NavBar = ({ variant = "dark", bg = "dark" }) => {
+  return (
+    <Navbar bg={bg} data-bs-theme={variant}>
+      <Container>
+        <Navbar.Brand as={Link} to="/">Navbar</Navbar.Brand>
+        <Nav className="ms-auto">
+          <Nav.Link as={Link} to="/">Home</Nav.Link>
+          <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
+          <Nav.Link as={Link} to="/create-product">Create Product</Nav.Link>
+          <Nav.Link as={Link} to="/sigin">SignIn</Nav.Link>
+        </Nav>
+      </Container>
+    </Navbar>
+  );
+};
+
+export default NavBar;
